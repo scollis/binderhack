@@ -15,9 +15,6 @@ dependencies:
   - h5py
   - boto
   - boto3
-  - docutils
-  - cython
-  - pip
   - nodejs
   - nbserverproxy
   - ipyleaflet

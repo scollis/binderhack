@@ -1,1 +1,1 @@
-FROM scollis/radar-pangeo:init
+FROM scollis/radar-pangeo:2019.09.03
