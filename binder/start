@@ -1,6 +1,0 @@
-#!/bin/bash
-
-echo "HELLOW WORLD" > /home/jovian/hellomesh
-
-exec "$@"
-
