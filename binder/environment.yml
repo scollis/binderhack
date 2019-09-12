@@ -1,28 +1,50 @@
-name: ams2019
+# packages in addition to repo2docker/buildpacks/conda/environment.yml
+name: pangeo
 channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python=3.6
+  - jupyterlab=1
+  - jupyterhub=1
+  - nbgitpuller=0.7
+  - dask=2.2
+  - distributed=2.2
+  - dask-kubernetes=0.9
+  - dask-gateway=0.2
+  - tornado=6
+  - jupyter-server-proxy=1.1
+  - bokeh=1.3
+  - graphviz=2.40
+  - pip=19
   - numpy
-  - xarray
-  - matplotlib
-  - cython
   - scipy
-  - netcdf4
-  - wradlib
-  - cartopy
-  - h5py
+  - matplotlib
+  - pandas
+  - xarray>=0.12.2
+# data science stuff
   - boto
   - boto3
-  - nodejs
-  - nbserverproxy
+# geospatial
+  - cartopy
+  - geopandas
+  - netcdf4
+  - h5py
+  - h5netcdf
+# geoscience-related
+  - metpy
+  - satpy
+# intake-related
+  - intake
+  - intake-xarray
+  - intake-esm
+# jupyter-related
   - ipyleaflet
+  - pip
+# radar
+  - wradlib
   - pip:
+    - git+https://github.com/ian-r-rose/dask-labextension.git@de-asyncify#egg=dask_labextension
     - git+https://github.com/ARM-DOE/pyart.git
     - git+https://github.com/openradar/PyDDA.git
-    - kubernetes
-    - graphviz
     - nexradaws
     - cdsapi
     - git+https://github.com/CSU-Radarmet/CSU_RadarTools.git
