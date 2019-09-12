@@ -3,18 +3,6 @@ name: pangeo
 channels:
   - conda-forge
 dependencies:
-  - jupyterlab=1
-  - jupyterhub=1
-  - nbgitpuller=0.7
-  - dask=2.2
-  - distributed=2.2
-  - dask-kubernetes=0.9
-  - dask-gateway=0.2
-  - tornado=6
-  - jupyter-server-proxy=1.1
-  - bokeh=1.3
-  - graphviz=2.40
-  - pip=19
   - numpy
   - scipy
   - matplotlib
@@ -32,17 +20,12 @@ dependencies:
 # geoscience-related
   - metpy
   - satpy
-# intake-related
-  - intake
-  - intake-xarray
-  - intake-esm
 # jupyter-related
   - ipyleaflet
   - pip
 # radar
   - wradlib
   - pip:
-    - git+https://github.com/ian-r-rose/dask-labextension.git@de-asyncify#egg=dask_labextension
     - git+https://github.com/ARM-DOE/pyart.git
     - git+https://github.com/openradar/PyDDA.git
     - nexradaws
