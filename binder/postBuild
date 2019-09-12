@@ -3,5 +3,5 @@
 jupyter labextension install @pyviz/jupyterlab_pyviz \
                              jupyter-leaflet
 
-bash ./provision.sh
+bash /home/jovian/binder/provision.sh
 # End
