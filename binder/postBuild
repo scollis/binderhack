@@ -4,6 +4,8 @@ jupyter labextension install @pyviz/jupyterlab_pyviz \
                              jupyter-leaflet
 
 
+export COIN_INSTALL_DIR=/srv/conda/envs/notebook
+/srv/conda/envs/notebook/bin/pip install git+https://github.com/coin-or/CyLP
 
 
 bash /home/jovyan/binder/provision.sh
