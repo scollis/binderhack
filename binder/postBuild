@@ -7,6 +7,14 @@ jupyter labextension install @pyviz/jupyterlab_pyviz \
 export COIN_INSTALL_DIR=/srv/conda/envs/notebook
 /srv/conda/envs/notebook/bin/pip install git+https://github.com/coin-or/CyLP
 
+#INSTALLING BALTRAD
+CONDA_DIR=/srv/conda/
+RADARENV=notebook
+
+echo "export CONDA_DIR=$CONDA_DIR" >> ~/.profile
+echo "export RADARENV=$RADARENV" >> ~/.profile
+
+bash /home/jovyan/binder/install_baltrad_hlhdf.sh
 
 bash /home/jovyan/binder/provision.sh
 # End
