@@ -10,9 +10,11 @@ export COIN_INSTALL_DIR=/srv/conda/envs/notebook
 #INSTALLING BALTRAD
 CONDA_DIR=/srv/conda/
 RADARENV=notebook
+CONDA_PREFIX=$CONDA_DIR/envs/$RADARENV
 
 echo "export CONDA_DIR=$CONDA_DIR" >> ~/.profile
 echo "export RADARENV=$RADARENV" >> ~/.profile
+echo "export CONDA_PREFIX=$CONDA_PREFIX" >> ~/.profile
 
 bash /home/jovyan/binder/install_baltrad_hlhdf.sh
 
