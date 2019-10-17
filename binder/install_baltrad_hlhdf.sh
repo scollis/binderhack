@@ -13,7 +13,8 @@ git clone --depth=1 git://git.baltrad.eu/hlhdf.git
 cd hlhdf/
 
 source $CONDA_DIR/bin/activate $RADARENV
-export CONDA_PREFIX=$CONDA_DIR/envs/$RADARENV
+# Why must the following line be explicit?
+export CONDA_PREFIX=/srv/conda/envs/notebook
 
 ./configure --prefix=$CONDA_PREFIX/hlhdf \
             --with-hdf5=$CONDA_PREFIX/include,$CONDA_PREFIX/lib \
