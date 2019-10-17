@@ -3,8 +3,6 @@ set -x
 
 # Vagrant provision script for installing BALTRAD RAVE component
 
-export LD_LIBRARY_PATH=$CONDA_PREFIX/hlhdf/lib
-
 # Install RAVE from source
 cd ~
 if [ ! -d tmp ]; then
@@ -21,17 +19,22 @@ sed -i -e 's/from keyczar import keyczar/#from keyczar import keyczar/g' Lib/Bal
 cp -p /vagrant/vendor/fix_shebang.sh bin/.  # Copies in path to Python for conda
 
 source $CONDA_DIR/bin/activate $RADARENV
+printenv | grep LD_LIBRARY_PATH | grep --quiet notebook
+if [ $? = 1 ]
+then
+    source ~/.profile
+fi
 
 ./configure --prefix=$CONDA_PREFIX/rave \
             --with-hlhdf=$CONDA_PREFIX/hlhdf \
             --with-proj=$CONDA_PREFIX/include,$CONDA_PREFIX/lib \
             --with-expat=$CONDA_PREFIX/include,$CONDA_PREFIX/lib \
-            --with-numpy=$CONDA_PREFIX/lib/python3.6/site-packages/numpy/core/include/numpy/ \
+            --with-numpy=$CONDA_PREFIX/lib/python3.7/site-packages/numpy/core/include/numpy/ \
             --with-netcdf=$CONDA_PREFIX/include,$CONDA_PREFIX/lib \
             --enable-py3support \
             --with-py3bin=$CONDA_PREFIX/bin/python \
             --with-py3bin-config=$CONDA_PREFIX/bin/python3-config \
-            --with-python-makefile=$CONDA_PREFIX/lib/python3.6/config-3.6m-x86_64-linux-gnu/Makefile
+            --with-python-makefile=$CONDA_PREFIX/lib/python3.7/config-3.7m-x86_64-linux-gnu/Makefile
 make
 make test
 make install
