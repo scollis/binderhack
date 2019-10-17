@@ -8,7 +8,7 @@ export COIN_INSTALL_DIR=/srv/conda/envs/notebook
 /srv/conda/envs/notebook/bin/pip install git+https://github.com/coin-or/CyLP
 
 #INSTALLING BALTRAD
-CONDA_DIR=/srv/conda/
+CONDA_DIR=/srv/conda
 RADARENV=notebook
 CONDA_PREFIX=$CONDA_DIR/envs/$RADARENV
 

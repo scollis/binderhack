@@ -2,6 +2,7 @@
 set -x
 
 # Vagrant provision script for installing BALTRAD HL-HDF component
+CONDA_PREFIX=$CONDA_DIR/envs/$RADARENV
 
 # Install hlhdf from source into conda env
 cd ~
