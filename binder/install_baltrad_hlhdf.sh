@@ -12,7 +12,11 @@ cd tmp
 git clone --depth=1 git://git.baltrad.eu/hlhdf.git
 cd hlhdf/
 
-source ~/.profile
+printenv | grep CONDA_PREFIX | grep --quiet $RADARENV
+if [ $? = 1 ]
+then
+    source ~/.profile
+fi
 source $CONDA_DIR/bin/activate $RADARENV
 #conda install --yes make
 
