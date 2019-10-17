@@ -16,10 +16,10 @@ sed -i -e 's/import jprops/#import jprops/g' Lib/rave_dom_db.py
 sed -i -e 's/import jprops/#import jprops/g' Lib/rave_bdb.py
 sed -i -e 's/from baltrad.bdbclient/#from baltrad.bdbclient/g' Lib/rave_bdb.py
 sed -i -e 's/from keyczar import keyczar/#from keyczar import keyczar/g' Lib/BaltradFrame.py
-cp -p /vagrant/vendor/fix_shebang.sh bin/.  # Copies in path to Python for conda
+cp -p ~/binder/baltrad/fix_shebang.sh bin/.  # Copies in path to Python for conda
 
 source $CONDA_DIR/bin/activate $RADARENV
-printenv | grep LD_LIBRARY_PATH | grep --quiet notebook
+printenv | grep CONDA_PREFIX | grep --quiet $RADARENV
 if [ $? = 1 ]
 then
     source ~/.profile
@@ -39,7 +39,7 @@ make
 make test
 make install
 # Copy files that need (temporary) monkeying to transition to Py3
-cp -r /vagrant/vendor/opt/baltrad/rave/Lib/* $CONDA_PREFIX/rave/Lib/
+cp -r ~/binder/baltrad/opt/baltrad/rave/Lib/* $CONDA_PREFIX/rave/Lib/
 
 grep -l rave ~/.bashrc
 if [[ $? == 1 ]]; then
