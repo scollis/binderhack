@@ -2,11 +2,12 @@
 set -x
 
 # Vagrant provision script for installing BALTRAD wrwp from source
+export CONDA_PREFIX=/srv/conda/envs/notebook
 
 # Install system dependencies, not conda in this case
 export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$CONDA_PREFIX/hlhdf/lib:$CONDA_PREFIX/rave/lib
-sudo apt-get install -qq libatlas-base-dev
-sudo apt-get install -qq liblapacke-dev
+#sudo apt-get install -qq libatlas-base-dev
+#sudo apt-get install -qq liblapacke-dev
 
 # HACK some include files are not copied when RAVE is installed
 cd ~
@@ -17,7 +18,7 @@ cd tmp
 
 # HACK we need .../rave/tmp to exist
 mkdir $CONDA_PREFIX/rave/tmp
-chown vagrant:vagrant $CONDA_PREFIX/rave/tmp
+chown jovyan:jovyan $CONDA_PREFIX/rave/tmp
 
 # install baltrad_wrwp from source
 cd ~
@@ -26,6 +27,8 @@ git clone --depth 1 git://git.baltrad.eu/baltrad-wrwp.git
 cd baltrad-wrwp/
 
 source $CONDA_DIR/bin/activate $RADARENV
+# Why must the following line be explicit? Second time just to be safe...
+export CONDA_PREFIX=/srv/conda/envs/notebook
 
 ./configure --prefix=$CONDA_PREFIX/baltrad-wrwp --with-rave=$CONDA_PREFIX/rave --with-blas=/usr/lib --with-cblas=/usr/lib --with-lapack=/usr/lib --with-lapacke=/usr/include,/usr/lib
 make

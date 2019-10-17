@@ -19,11 +19,8 @@ sed -i -e 's/from keyczar import keyczar/#from keyczar import keyczar/g' Lib/Bal
 cp -p ~/binder/baltrad/fix_shebang.sh bin/.  # Copies in path to Python for conda
 
 source $CONDA_DIR/bin/activate $RADARENV
-printenv | grep CONDA_PREFIX | grep --quiet $RADARENV
-if [ $? = 1 ]
-then
-    source ~/.profile
-fi
+# Why must the following line be explicit?
+export CONDA_PREFIX=/srv/conda/envs/notebook
 
 ./configure --prefix=$CONDA_PREFIX/rave \
             --with-hlhdf=$CONDA_PREFIX/hlhdf \

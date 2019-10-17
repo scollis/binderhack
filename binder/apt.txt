@@ -1,3 +1,4 @@
 graphviz
 vim
-
+lapack
+libatlas-base-dev

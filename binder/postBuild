@@ -17,6 +17,9 @@ echo "export RADARENV=$RADARENV" >> ~/.profile
 echo "export CONDA_PREFIX=$CONDA_PREFIX" >> ~/.profile
 
 bash /home/jovyan/binder/install_baltrad_hlhdf.sh
+bash /home/jovyan/binder/install_baltrad_rave.sh
+bash /home/jovyan/binder/install_baltrad_beamb.sh
+bash /home/jovyan/binder/install_baltrad_bropo.sh
 
 #bash /home/jovyan/binder/provision.sh
 # End
