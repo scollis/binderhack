@@ -18,5 +18,5 @@ echo "export CONDA_PREFIX=$CONDA_PREFIX" >> ~/.profile
 
 bash /home/jovyan/binder/install_baltrad_hlhdf.sh
 
-#bash /home/jovyan/binder/provision.sh
+bash /home/jovyan/binder/provision.sh
 # End
