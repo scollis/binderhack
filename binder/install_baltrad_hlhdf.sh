@@ -13,7 +13,7 @@ git clone --depth=1 git://git.baltrad.eu/hlhdf.git
 cd hlhdf/
 
 source $CONDA_DIR/bin/activate $RADARENV
-CONDA_PREFIX=$CONDA_DIR/envs/$RADARENV
+export CONDA_PREFIX=$CONDA_DIR/envs/$RADARENV
 
 ./configure --prefix=$CONDA_PREFIX/hlhdf \
             --with-hdf5=$CONDA_PREFIX/include,$CONDA_PREFIX/lib \
