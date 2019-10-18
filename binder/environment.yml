@@ -11,6 +11,8 @@ dependencies:
 # data science stuff
   - boto
   - boto3
+  - blas
+  - liblapacke
 # geospatial
   - cartopy
   - geopandas

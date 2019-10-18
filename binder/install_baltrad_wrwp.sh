@@ -6,8 +6,6 @@ export CONDA_PREFIX=/srv/conda/envs/notebook
 
 # Install system dependencies, not conda in this case
 export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$CONDA_PREFIX/hlhdf/lib:$CONDA_PREFIX/rave/lib
-#sudo apt-get install -qq libatlas-base-dev
-#sudo apt-get install -qq liblapacke-dev
 
 # HACK some include files are not copied when RAVE is installed
 cd ~
@@ -30,7 +28,7 @@ source $CONDA_DIR/bin/activate $RADARENV
 # Why must the following line be explicit? Second time just to be safe...
 export CONDA_PREFIX=/srv/conda/envs/notebook
 
-./configure --prefix=$CONDA_PREFIX/baltrad-wrwp --with-rave=$CONDA_PREFIX/rave --with-blas=/usr/lib --with-cblas=/usr/lib --with-lapack=/usr/lib --with-lapacke=/usr/include,/usr/lib
+./configure --prefix=$CONDA_PREFIX/baltrad-wrwp --with-rave=$CONDA_PREFIX/rave --with-blas=$CONDA_PREFIX/lib --with-cblas=$CONDA_PREFIX/lib --with-lapack=$CONDA_PREFIX/lib --with-lapacke=$CONDA_PREFIX/include,$CONDA_PREFIX/lib
 make
 make test
 make install
