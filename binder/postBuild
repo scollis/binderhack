@@ -8,13 +8,19 @@ export COIN_INSTALL_DIR=/srv/conda/envs/notebook
 /srv/conda/envs/notebook/bin/pip install git+https://github.com/coin-or/CyLP
 
 #INSTALLING BALTRAD
-CONDA_DIR=/srv/conda/
+CONDA_DIR=/srv/conda
 RADARENV=notebook
+CONDA_PREFIX=$CONDA_DIR/envs/$RADARENV
 
 echo "export CONDA_DIR=$CONDA_DIR" >> ~/.profile
 echo "export RADARENV=$RADARENV" >> ~/.profile
+echo "export CONDA_PREFIX=$CONDA_PREFIX" >> ~/.profile
 
 bash /home/jovyan/binder/install_baltrad_hlhdf.sh
+bash /home/jovyan/binder/install_baltrad_rave.sh
+bash /home/jovyan/binder/install_baltrad_beamb.sh
+bash /home/jovyan/binder/install_baltrad_bropo.sh
+bash /home/jovyan/binder/install_baltrad_wrwp.sh
 
 bash /home/jovyan/binder/provision.sh
 # End

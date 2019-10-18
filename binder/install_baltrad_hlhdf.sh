@@ -5,7 +5,7 @@ set -x
 
 # Install hlhdf from source into conda env
 cd ~
-if ![[ -d tmp ]]; then
+if [ ! -d tmp ]; then
     mkdir tmp
     fi
 cd tmp
@@ -13,17 +13,18 @@ git clone --depth=1 git://git.baltrad.eu/hlhdf.git
 cd hlhdf/
 
 source $CONDA_DIR/bin/activate $RADARENV
-conda install --yes make
+# Why must the following line be explicit?
+export CONDA_PREFIX=/srv/conda/envs/notebook
 
 ./configure --prefix=$CONDA_PREFIX/hlhdf \
             --with-hdf5=$CONDA_PREFIX/include,$CONDA_PREFIX/lib \
             --enable-py3support \
             --with-py3bin=$CONDA_PREFIX/bin/python3 \
-            --with-numpy=$CONDA_PREFIX/lib/python3.6/site-packages/numpy/core/include/numpy/
+            --with-numpy=$CONDA_PREFIX/lib/python3.7/site-packages/numpy/core/include/numpy/
 make
 make test
 make install
-mv $CONDA_PREFIX/hlhdf/hlhdf.pth $CONDA_PREFIX/lib/python3.6/site-packages/.
+mv $CONDA_PREFIX/hlhdf/hlhdf.pth $CONDA_PREFIX/lib/python3.7/site-packages/.
 
 grep -l hlhdf ~/.bashrc
 if [[ $? == 1 ]]; then

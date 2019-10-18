@@ -2,13 +2,14 @@
 set -x
 
 # Vagrant provision script for installing BALTRAD beamb component
+export CONDA_PREFIX=/srv/conda/envs/notebook
 
 # install dependencies
 export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$CONDA_PREFIX/hlhdf/lib:$CONDA_PREFIX/rave/lib
 
 # install beamb from source
 cd ~
-if ! [[ -d tmp ]]; then
+if [ ! -d tmp ]; then
     mkdir tmp
 fi
 cd tmp
@@ -16,12 +17,14 @@ git clone --depth=1 git://git.baltrad.eu/beamb.git
 cd beamb/
 
 source $CONDA_DIR/bin/activate $RADARENV
+# Why must the following line be explicit? Second time just to be safe...
+export CONDA_PREFIX=/srv/conda/envs/notebook
 
 ./configure --prefix=$CONDA_PREFIX/beamb --with-rave=$CONDA_PREFIX/rave
 make
 make test
 make install
-echo $CONDA_PREFIX/beamb/share/beamb/pybeamb > $CONDA_PREFIX/lib/python3.6/site-packages/beamb.pth
+echo $CONDA_PREFIX/beamb/share/beamb/pybeamb > $CONDA_PREFIX/lib/python3.7/site-packages/beamb.pth
 
 grep -l beamb ~/.bashrc
 if [[ $? == 1 ]] ;
