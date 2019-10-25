@@ -30,8 +30,7 @@ grep -l beamb ~/.bashrc
 if [[ $? == 1 ]] ;
 then 
 echo "export PATH=\"\$PATH:$CONDA_PREFIX/beamb/bin\"" >> ~/.bashrc;
-#echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$CONDA_PREFIX/beamb/lib\"" >> ~/.bashrc;
-echo "\"\$CONDA_PREFIX/beamb/lib\"" >> /etc/ld.so.conf.d/baltrad.conf
+echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$CONDA_PREFIX/beamb/lib\"" >> ~/.bashrc;
 fi
 grep -l beamb $CONDA_PREFIX/rave/etc/rave_pgf_quality_registry.xml
 if [ $? == 1 ] ;

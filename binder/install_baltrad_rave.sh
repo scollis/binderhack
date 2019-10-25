@@ -42,6 +42,5 @@ grep -l rave ~/.bashrc
 if [[ $? == 1 ]]; then
     echo "export RAVEROOT=$CONDA_PREFIX" >> ~/.bashrc
     echo "export PATH=\"\$PATH:$CONDA_PREFIX/rave/bin\"" >> ~/.bashrc;
-#    echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$CONDA_PREFIX/rave/lib\"" >> ~/.bashrc;
-    echo "\"\$CONDA_PREFIX/rave/lib\"" >> /etc/ld.so.conf.d/baltrad.conf
+    echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$CONDA_PREFIX/rave/lib\"" >> ~/.bashrc;
 fi
