@@ -36,5 +36,6 @@ make install
 grep -l wrwp ~/.bashrc
 if [[ $? == 1 ]]; then
     echo "export PATH=\"\$PATH:$CONDA_PREFIX/baltrad-wrwp/bin\"" >> ~/.bashrc;
-    echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$CONDA_PREFIX/baltrad-wrwp/lib\"" >> ~/.bashrc;
+#    echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$CONDA_PREFIX/baltrad-wrwp/lib\"" >> ~/.bashrc;
+    echo "\"\$CONDA_PREFIX/baltrad-wrwp/lib\"" >> /etc/ld.so.conf.d/baltrad.conf
 fi

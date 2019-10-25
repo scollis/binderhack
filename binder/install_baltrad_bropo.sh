@@ -30,7 +30,8 @@ make install
 grep -l bropo ~/.bashrc
 if [[ $? == 1 ]]; then
     echo "export PATH=\"\$PATH:$CONDA_PREFIX/bropo/bin\"" >> ~/.bashrc;
-    echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$CONDA_PREFIX/bropo/lib\"" >> ~/.bashrc;
+#    echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$CONDA_PREFIX/bropo/lib\"" >> ~/.bashrc;
+    echo "\"\$CONDA_PREFIX/bropo/lib\"" >> /etc/ld.so.conf.d/baltrad.conf
 fi
 grep -l ropo_quality_plugin $CONDA_PREFIX/rave/etc/rave_pgf_quality_registry.xml
 if [[ $? == 1 ]]; then

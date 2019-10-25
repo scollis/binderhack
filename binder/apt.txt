@@ -1,5 +1,6 @@
 graphviz
 vim
+locate
 libblas-dev
 libatlas-base-dev
 liblapacke-dev

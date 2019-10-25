@@ -29,5 +29,6 @@ mv $CONDA_PREFIX/hlhdf/hlhdf.pth $CONDA_PREFIX/lib/python3.7/site-packages/.
 grep -l hlhdf ~/.bashrc
 if [[ $? == 1 ]]; then
     echo "export PATH=\"\$PATH:$CONDA_PREFIX/hlhdf/bin\"" >> ~/.bashrc
-    echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$CONDA_PREFIX/lib:$CONDA_PREFIX/hlhdf/lib\"" >> ~/.bashrc;
+#    echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$CONDA_PREFIX/lib:$CONDA_PREFIX/hlhdf/lib\"" >> ~/.bashrc;
+    echo "\"\$CONDA_PREFIX/hlhdf/lib\"" > /etc/ld.so.conf.d/baltrad.conf
 fi
