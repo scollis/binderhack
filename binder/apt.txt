@@ -1,7 +1,7 @@
-sudo
+#sudo
 graphviz
 vim
-locate
+#locate
 libblas-dev
 libatlas-base-dev
 liblapacke-dev
