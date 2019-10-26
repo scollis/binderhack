@@ -22,5 +22,5 @@ bash /home/jovyan/binder/install_baltrad_beamb.sh
 bash /home/jovyan/binder/install_baltrad_bropo.sh
 bash /home/jovyan/binder/install_baltrad_wrwp.sh
 
-bash /home/jovyan/binder/provision.sh
+#bash /home/jovyan/binder/provision.sh
 # End
