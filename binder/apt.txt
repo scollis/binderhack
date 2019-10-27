@@ -1,11 +1,9 @@
 #sudo
 graphviz
 vim
-#locate
 libblas-dev
 libatlas-base-dev
 liblapacke-dev
 apache2
 php
 libapache2-mod-php
-#libfreetype6-dev
