@@ -14,6 +14,7 @@ dependencies:
   - blas
   - liblapacke
 # geospatial
+  - proj4=5.2.0
   - cartopy
   - geopandas
   - netcdf4
