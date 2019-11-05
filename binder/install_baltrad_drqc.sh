@@ -26,4 +26,4 @@ export CONDA_PREFIX=/srv/conda/envs/notebook
 make
 make test
 make install
-cd
+cd ~
